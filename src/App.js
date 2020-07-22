@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+import Time from './Time'
+import Location from './Location';
 import "./App.css";
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
     } else {
       return false;
     }
-    // return savedMode || false;
+    // return savedMode || false
   }
 
   function getPrefColorScheme() {
@@ -35,6 +36,8 @@ function App() {
   return (
     <div className={darkMode ? "dark-mode" : "light-mode"}>
       <nav>
+      <Time/>
+         <Location/>
         <div className="toggle-container">
           <span style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</span>
           <span className="toggle">
