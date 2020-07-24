@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Time from './Time'
-import Location from './Location';
+import Period from './Period';
 import "./App.css";
 
 function App() {
   const [darkMode, setDarkMode] = React.useState(getInitialMode());
   React.useEffect(() => {
-    localStorage.setItem("dark", JSON.stringify(darkMode));
+    // localStorage.setItem("dark", JSON.stringify(darkMode));
   }, [darkMode]);
 
   function getInitialMode() {
@@ -36,8 +36,7 @@ function App() {
   return (
     <div className={darkMode ? "dark-mode" : "light-mode"}>
       <nav>
-      <Time/>
-         <Location/>
+         <Period/>
         <div className="toggle-container">
           <span style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</span>
           <span className="toggle">

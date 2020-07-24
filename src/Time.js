@@ -12,18 +12,18 @@ constructor(props) {
       currentTime: time
     }
 
-    if (this.state.currentTime > "15:0:0") {
-        console.log("Dark")
-    } else {
-        console.log("Light")
-    }
+    // if (this.state.currentTime > "22:0:0") {
+    //     console.log(this.state.currentTime)
+    // } else {
+    //     console.log("Light")
+    // }
+    console.log(this.state.currentTime);
   }
-
   render() {
     return (
       <div>
         <p>
-          { this.state.currentTime }
+          
         </p>
       </div>
     );
