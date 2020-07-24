@@ -7,7 +7,7 @@ import "./App.css";
 function App() {
   const [darkMode, setDarkMode] = React.useState(getInitialMode());
   React.useEffect(() => {
-    // localStorage.setItem("dark", JSON.stringify(darkMode));
+    localStorage.setItem("dark", JSON.stringify(darkMode));
   }, [darkMode]);
 
   function getInitialMode() {
@@ -36,6 +36,7 @@ function App() {
   return (
     <div className={darkMode ? "dark-mode" : "light-mode"}>
       <nav>
+      <Time/>
          <Period/>
         <div className="toggle-container">
           <span style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</span>

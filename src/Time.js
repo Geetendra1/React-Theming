@@ -7,7 +7,7 @@ constructor(props) {
     super(props)
     
    const today = new Date(),
-    time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds(); 
+    time = today.getMonth() + '/' + today.getDate() + '/' + today.getFullYear(); 
     this.state = {
       currentTime: time
     }

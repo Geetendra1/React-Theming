@@ -11,6 +11,7 @@ export default class Period extends Component {
             localSunrise:'',
             localSunset: '',
             systemTime:'',
+            systemDate:'',
             dark: false,
             light:false,
             period:[] 
@@ -49,28 +50,37 @@ getCurrentLocation() {
     }
 
     getLocalTime() {
-    const ConvertSunset = new Date(`7/24/2020 ${this.state.sunset} UTC`).toString().split(" ")[4]
+    const ConvertSunset = new Date(`${this.state.systemDate} ${this.state.sunset} UTC`).toString().split(" ")[4]
     this.setState({
         localSunset:ConvertSunset 
     })
-    const ConvertSunrise = new Date(`7/23/2020 ${this.state.sunrise} UTC`).toString().split(" ")[4]
+    const ConvertSunrise = new Date(`${this.state.systemDate} ${this.state.sunrise} UTC`).toString().split(" ")[4]
     this.setState({
         localSunrise:ConvertSunrise 
     })
-    this.getSystemTime()
+    this.getSystemTimeDate()
     }
 
-    getSystemTime() {
+    getSystemTimeDate() {
         const currentTime = new Date().toString().split(" ")[4]
         this.setState({
             systemTime : currentTime 
         })
+
+        const today = new Date()
+        const date = today.getMonth() + '/' + today.getDate() + '/' + today.getFullYear(); 
+        this.setState({
+          systemDate:date
+        })
+
         this.getTheme()
     }
 
+    
+
     getTheme() {
         // if('20:20:20' > this.state.localSunrise && '20:20:20' < this.state.localSunset){
-           if(this.state.systemTime > this.state.localSunrise && this.state.systemTime < this.state.localSunset){
+       if(this.state.systemTime > this.state.localSunrise && this.state.systemTime < this.state.localSunset){
         this.setState({
           light:true
         })
@@ -92,6 +102,7 @@ getCurrentLocation() {
            <h1>Local sunrise - {this.state.localSunrise}</h1>
            <h1>Local sunset - {this.state.localSunset}</h1>
              <h1>System Time - {this.state.systemTime}</h1>
+           <h1> System Date - {this.state.systemDate.toString()}</h1>
              <h1> Light Theme Status - {this.state.light.toString()}</h1>
            <h1> Dark Theme Status - {this.state.dark.toString()}</h1>
 
